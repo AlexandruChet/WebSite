@@ -1,7 +1,7 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import Input from "./Input";
 import { config, initialState, type FormDataI } from "./config";
-import './Registration.scss'
+import "./Registration.scss";
 
 function MyForm() {
   const [formState, setFormState] = useState<FormDataI>(initialState);
@@ -19,19 +19,19 @@ function MyForm() {
 
   return (
     <section className="form">
-          <form onSubmit={onSubmit} className="form__content">
-      <p className="form-title">Registration</p>
-      {config.map((item) => (
-        <Input
-          key={item.name}
-          {...item}
-          value={formState[item.name]}
-          onChange={onChange}
-          error={item.validate ? !item.validate(formState) : false}
-        />
-      ))}
-      <button type="submit">Register</button>
-    </form>
+      <form onSubmit={onSubmit} className="form__content">
+        <p className="form-title">Registration</p>
+        {config.map((item) => (
+          <Input
+            key={item.name}
+            {...item}
+            value={formState[item.name]}
+            onChange={onChange}
+            error={item.validate ? !item.validate(formState) : false}
+          />
+        ))}
+        <button type="submit">Register</button>
+      </form>
     </section>
   );
 }

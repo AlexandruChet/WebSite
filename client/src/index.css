@@ -12,9 +12,10 @@
 }
 
 /* Base html & body */
-html, body {
+html,
+body {
   height: 100%;
-  font-family: 'Arial', sans-serif;
+  font-family: "Arial", sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #333;
@@ -23,7 +24,8 @@ html, body {
 }
 
 /* Remove list styles */
-ul, ol {
+ul,
+ol {
   list-style: none;
 }
 
@@ -44,7 +46,9 @@ button {
 }
 
 /* Remove default input styles */
-input, textarea, select {
+input,
+textarea,
+select {
   font-family: inherit;
   font-size: inherit;
   border: none;
@@ -52,7 +56,8 @@ input, textarea, select {
 }
 
 /* Images */
-img, picture {
+img,
+picture {
   max-width: 100%;
   display: block;
 }
@@ -64,7 +69,12 @@ table {
 }
 
 /* Headings */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: normal;
 }
 

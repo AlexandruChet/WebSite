@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
+
+@mixin padding($top, $right, $bottom, $left) {
+  padding: $top $right $bottom $left;
+}
+
+body {
+  font-family: "Ubuntu", sans-serif;
+}
+
+.container {
+  @include padding(5rem, 5rem, 5rem, 5rem);
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.bottom__web {
+  color: white;
+  width: 100%;
+  background-color: #021635;
+  display: flex;
+  gap: 100vh;
+
+  div {
+    font-size: 15px;
+  }
+
+  .questions {
+    button {
+      margin-top: 3rem;
+      font-size: 30px;
+      color: white;
+      transition: 0.3s ease;
+
+      &:hover {
+        padding: 5px 10px;
+        margin-left: 15px;
+        color: #084298;
+        background-color: white;
+        border-radius: 20px;
+        box-shadow: rgba(255, 255, 255, 0.8) 0px 54px 55px,
+          rgb(255, 255, 255) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+          rgba(255, 255, 255, 0.17) 0px 12px 13px,
+          rgb(155, 137, 255) 0px -3px 5px;
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    @include padding(3rem, 2rem, 3rem, 2rem);
+  }
+
+  .bottom__web {
+    gap: 50vh;
+
+    div {
+      font-size: 14px;
+    }
+
+    .questions button {
+      font-size: 25px;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .container {
+    @include padding(2rem, 1.5rem, 2rem, 1.5rem);
+  }
+
+  .bottom__web {
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+
+    div {
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .questions button {
+      font-size: 22px;
+      margin-top: 2rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    @include padding(1rem, 1rem, 1rem, 1rem);
+  }
+
+  .bottom__web {
+    gap: 1.5rem;
+
+    div {
+      font-size: 13px;
+    }
+
+    .questions button {
+      font-size: 18px;
+      margin-top: 1.5rem;
+    }
+  }
+}
