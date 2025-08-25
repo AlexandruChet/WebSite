@@ -1,0 +1,127 @@
+header{
+  padding-top: 2rem;
+  padding-left: 2rem;
+  height: 6rem;
+  position: relative;
+  background-color: #232526;
+}
+
+
+.burger__menu {
+  z-index: 1000;
+}
+
+
+.btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 32px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  position: fixed;
+  z-index: 1100;
+  transition: transform 0.3s ease;
+}
+
+.btn span {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #333;
+  border-radius: 3px;
+  transition: all 0.4s ease;
+}
+
+
+.burger__menus.active ~ .btn span:nth-child(1),
+.btn.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.burger__menus.active ~ .btn span:nth-child(2),
+.btn.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.burger__menus.active ~ .btn span:nth-child(3),
+.btn.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+
+.burger__menus {
+  position: fixed;
+  z-index: 1000;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 50vh;
+  background: linear-gradient(135deg, #232526, #414345);
+  transition: top 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+
+.burger__menus.active {
+  top: 0;
+}
+
+
+.services .__names ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.services .__names ul li {
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.6s forwards;
+}
+
+
+.services .__names ul li:nth-child(1) { animation-delay: 0.2s; }
+.services .__names ul li:nth-child(2) { animation-delay: 0.4s; }
+.services .__names ul li:nth-child(3) { animation-delay: 0.6s; }
+.services .__names ul li:nth-child(4) { animation-delay: 0.8s; }
+.services .__names ul li:nth-child(5) { animation-delay: 1s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.services .__names ul li a {
+  text-decoration: none;
+  font-size: 24px;
+  font-weight: 500;
+  color: #fff;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.services .__names ul li a:hover {
+  color: #00e0ff;
+  transform: scale(1.05);
+}
+
+
+@media (max-width: 768px) {
+  .services .__names ul li a {
+    font-size: 20px;
+  }
+}
