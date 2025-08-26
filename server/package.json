@@ -1,0 +1,11 @@
+{
+  "name": "server",
+  "version": "22.14.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alexandru Chetrean",
+  "license": "ISC",
+  "description": ""
+}

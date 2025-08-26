@@ -215,12 +215,14 @@
     overflow: hidden;
 
     .house__image {
+      border-radius: 20px;
       max-width: 100%;
       height: auto;
       border-radius: 12px;
-      transition: transform 0.8s ease, filter 0.5s ease;
+      transition: all 0.8s ease-in-out;
 
       &:hover {
+        background-color: #4e47d6;
         transform: scale(1.1) rotate(-2deg);
         filter: brightness(1.1);
       }

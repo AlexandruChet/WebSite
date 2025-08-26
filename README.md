@@ -105,3 +105,34 @@ Dynamically applies a CSS class based on isOpen:
 "active" → menu is visible.
 
 "hidden" → menu is hidden.
+
+
+# useScrollY
+
+A simple React hook to track the vertical scroll position (`window.scrollY`) of the page.
+
+## Installation
+
+```bash
+# Using npm
+npm install your-package-name
+
+# Using yarn
+yarn add your-package-name
+
+Usage
+import { useScrollY } from 'your-package-name';
+
+const MyComponent = () => {
+  const scrollY = useScrollY();
+
+  return <div>Current scroll Y position: {scrollY}px</div>;
+};
+
+Features
+
+Returns the current vertical scroll position.
+
+Updates automatically on scroll.
+
+Cleans up event listeners when the component unmounts.

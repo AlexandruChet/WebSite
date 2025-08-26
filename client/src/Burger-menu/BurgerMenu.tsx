@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import "./BurgerMenu.css";
+import "./BurgerMenu.scss";
 
 interface BurgerMenuProps {
   onNavigateCalculate?: () => void;
@@ -89,12 +89,12 @@ const BurgerMenu = ({
                 </li>
                 <li>
                   <a href="#"
-                  onClick={(e) => {
+                    onClick={(e) => {
                       e.preventDefault();
                       onNavigateFortune?.();
                       setIsOpen(false);
                     }}
-                    >Fortune</a>
+                  >Fortune</a>
                 </li>
                 <li>
                   <a href="#">lorem 5</a>
