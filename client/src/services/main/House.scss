@@ -1,0 +1,142 @@
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
+
+@mixin padding($top, $right, $bottom, $left) {
+  padding: $top $right $bottom $left;
+}
+
+.container {
+  background-color: #e0def7;
+  @include padding(5rem, 5rem, 5rem, 5rem);
+}
+
+.house {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35vh;
+
+  &__content {
+    margin-top: 3rem;
+    width: 50vh;
+  }
+  &__image-wrapper {
+    .house__image {
+      object-fit: cover;
+      cursor: pointer;
+      transition: all 1s;
+      object-position: top;
+      &:hover {
+        background-color: hsl(243, 52%, 73%);
+        object-position: center;
+        transform: scale(1.05);
+        border-radius: 3vw;
+      }
+    }
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  &__item {
+    margin-bottom: 2rem;
+  }
+
+  &__title {
+    border-radius: 10px;
+    font-family: "Plus Jakarta Sans", sans-serif;
+    font-weight: bold;
+    font-size: 3rem;
+    transition: all 0.3s ease;
+
+    &:hover {
+      width: 60vh;
+      padding: 10px;
+      background-color: black;
+      color: white;
+    }
+  }
+
+  &__subtitle {
+    font-size: 1.5rem;
+    color: #333;
+  }
+
+  &__item--actions {
+    .house__buttons {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .house__button {
+      padding: 0.7rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      background-color: #6c63ff;
+      color: white;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+
+      &:hover {
+        background-color: #4e47d6;
+      }
+    }
+
+    .house__info {
+      margin-top: 1.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      background-color: white;
+
+      &-text {
+        font-size: 1.2rem;
+        color: black;
+      }
+    }
+  }
+
+  &__item--stats {
+    display: flex;
+    gap: 2rem;
+
+    .house__stat {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      &-icon {
+        width: 60px;
+        height: auto;
+        margin-bottom: 0.5rem;
+      }
+
+      &-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+      }
+
+      &-text {
+        font-size: 0.9rem;
+        color: #555;
+      }
+    }
+  }
+
+  &__image-wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+}
