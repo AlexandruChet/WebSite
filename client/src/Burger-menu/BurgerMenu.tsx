@@ -1,14 +1,25 @@
 import { useState, useEffect, useRef } from "react";
 import "./BurgerMenu.css";
 
-const BurgerMenu = () => {
+interface BurgerMenuProps {
+  onNavigateCalculate?: () => void;
+  onNavigateHouse?: () => void;
+  onRegistration?: () => void;
+  onNavigateFortune?: () => void;
+}
+
+const BurgerMenu = ({
+  onNavigateCalculate,
+  onNavigateHouse,
+  onRegistration,
+  onNavigateFortune,
+}: BurgerMenuProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+  const menuRef = useRef<HTMLDivElement | null>(null);
 
   const funcState = (): void => {
     setIsOpen(!isOpen);
   };
-
-  const menuRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -41,16 +52,49 @@ const BurgerMenu = () => {
             <div className="__names">
               <ul>
                 <li>
-                  <a href="#">lorem 1</a>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigateCalculate?.();
+                      setIsOpen(false);
+                    }}
+                  >
+                    Calculate your Sum
+                  </a>
                 </li>
                 <li>
-                  <a href="#">lorem 2</a>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onNavigateHouse?.();
+                      setIsOpen(false);
+                    }}
+                  >
+                    Watch your House
+                  </a>
                 </li>
                 <li>
-                  <a href="#">lorem 3</a>
+                  <a
+                    href="#"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onRegistration?.();
+                      setIsOpen(false);
+                    }}
+                  >
+                    Registration
+                  </a>
                 </li>
                 <li>
-                  <a href="#">lorem 4</a>
+                  <a href="#"
+                  onClick={(e) => {
+                      e.preventDefault();
+                      onNavigateFortune?.();
+                      setIsOpen(false);
+                    }}
+                    >Fortune</a>
                 </li>
                 <li>
                   <a href="#">lorem 5</a>
