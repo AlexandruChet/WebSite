@@ -1,4 +1,4 @@
-import { useScrollY } from "./services/helpers";
+
 import BurgerMenu from "./Burger-menu/BurgerMenu";
 import House from "./services/main/House"
 import MyForm from "./Auth/Registration";

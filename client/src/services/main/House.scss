@@ -4,8 +4,45 @@
   padding: $top $right $bottom $left;
 }
 
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .container {
   background-color: #e0def7;
+  background-size: 200% 200%;
+  animation: pulse 10s ease-in-out infinite;
   @include padding(5rem, 5rem, 5rem, 5rem);
 }
 
@@ -18,20 +55,7 @@
   &__content {
     margin-top: 3rem;
     width: 50vh;
-  }
-  &__image-wrapper {
-    .house__image {
-      object-fit: cover;
-      cursor: pointer;
-      transition: all 1s;
-      object-position: top;
-      &:hover {
-        background-color: hsl(243, 52%, 73%);
-        object-position: center;
-        transform: scale(1.05);
-        border-radius: 3vw;
-      }
-    }
+    animation: fadeInUp 1s ease both;
   }
 
   &__list {
@@ -49,19 +73,41 @@
     font-family: "Plus Jakarta Sans", sans-serif;
     font-weight: bold;
     font-size: 3rem;
-    transition: all 0.3s ease;
+    position: relative;
+    transition: all 0.4s ease;
 
     &:hover {
       width: 60vh;
       padding: 10px;
-      background-color: black;
+      background: linear-gradient(90deg, #6c63ff, #4e47d6);
       color: white;
+      transform: translateX(10px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -5px;
+      width: 0;
+      height: 4px;
+      background: #6c63ff;
+      transition: width 0.3s ease;
+    }
+    &:hover::after {
+      width: 100%;
     }
   }
 
   &__subtitle {
     font-size: 1.5rem;
     color: #333;
+    transition: color 0.3s ease, letter-spacing 0.3s ease;
+    &:hover {
+      color: #6c63ff;
+      letter-spacing: 1px;
+    }
   }
 
   &__item--actions {
@@ -79,10 +125,32 @@
       font-size: 1rem;
       font-weight: 600;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s ease, background-color 0.3s ease;
 
       &:hover {
         background-color: #4e47d6;
+        transform: translateY(-3px);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+      }
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 0;
+        height: 0;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: translate(-50%, -50%);
+        transition: width 0.5s ease, height 0.5s ease;
+      }
+      &:active::after {
+        width: 200%;
+        height: 200%;
+        transition: 0s;
       }
     }
 
@@ -91,6 +159,7 @@
       padding: 1rem;
       border-radius: 8px;
       background-color: white;
+      animation: fadeInUp 0.8s ease;
 
       &-text {
         font-size: 1.2rem;
@@ -108,11 +177,21 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
+      padding: 1rem;
+      border-radius: 12px;
+      background: #fff;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+      }
 
       &-icon {
         width: 60px;
         height: auto;
         margin-bottom: 0.5rem;
+        animation: float 4s ease-in-out infinite;
       }
 
       &-title {
@@ -132,11 +211,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-  }
+    position: relative;
+    overflow: hidden;
 
-  &__image {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
+    .house__image {
+      max-width: 100%;
+      height: auto;
+      border-radius: 12px;
+      transition: transform 0.8s ease, filter 0.5s ease;
+
+      &:hover {
+        transform: scale(1.1) rotate(-2deg);
+        filter: brightness(1.1);
+      }
+    }
   }
 }

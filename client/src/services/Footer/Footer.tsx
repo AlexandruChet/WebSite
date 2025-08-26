@@ -9,7 +9,8 @@ const Footer = () => {
   };
 
   return (
-    <footer className="bottom__web container">
+    <div className="footer">
+          <footer className="bottom__web container">
       <div className="questions">
         <ul>
           <li>
@@ -40,6 +41,7 @@ const Footer = () => {
         </div>
       )}
     </footer>
+    </div>
   );
 };
 

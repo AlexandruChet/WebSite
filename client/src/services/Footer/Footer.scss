@@ -14,7 +14,9 @@ body {
   flex-wrap: wrap;
 }
 
-.bottom__web {
+.footer {
+  background-color: #021635;
+  .bottom__web {
   color: white;
   width: 100%;
   background-color: #021635;
@@ -45,6 +47,7 @@ body {
       }
     }
   }
+}
 }
 
 @media (max-width: 1024px) {
