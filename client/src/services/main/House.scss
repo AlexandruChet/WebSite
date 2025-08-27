@@ -46,185 +46,188 @@
   @include padding(5rem, 5rem, 5rem, 5rem);
 }
 
-.house {
-  width: 100%;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 35vh;
+.context {
+  background-image: url("https://wallpapers.com/images/hd/best-hd-1080-x-1920-background-gyo3mt59illx3kxb.jpg");
+  .house {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 35vh;
 
-  &__content {
-    margin-top: 3rem;
-    width: 50vh;
-    animation: fadeInUp 1s ease both;
-  }
-
-  &__list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-
-  &__item {
-    margin-bottom: 2rem;
-  }
-
-  &__title {
-    border-radius: 10px;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    font-weight: bold;
-    font-size: 3rem;
-    position: relative;
-    transition: all 0.4s ease;
-
-    &:hover {
-      width: 60vh;
-      padding: 10px;
-      background: linear-gradient(90deg, #6c63ff, #4e47d6);
-      color: white;
-      transform: translateX(10px) scale(1.05);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    &__content {
+      margin-top: 3rem;
+      width: 50vh;
+      animation: fadeInUp 1s ease both;
     }
 
-    &::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -5px;
-      width: 0;
-      height: 4px;
-      background: #6c63ff;
-      transition: width 0.3s ease;
-    }
-    &:hover::after {
-      width: 100%;
-    }
-  }
-
-  &__subtitle {
-    font-size: 1.5rem;
-    color: #333;
-    transition: color 0.3s ease, letter-spacing 0.3s ease;
-    &:hover {
-      color: #6c63ff;
-      letter-spacing: 1px;
-    }
-  }
-
-  &__item--actions {
-    .house__buttons {
-      display: flex;
-      gap: 1rem;
+    &__list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
     }
 
-    .house__button {
-      padding: 0.7rem 1.2rem;
-      border: none;
-      border-radius: 8px;
-      background-color: #6c63ff;
-      color: white;
-      font-size: 1rem;
-      font-weight: 600;
-      cursor: pointer;
+    &__item {
+      margin-bottom: 2rem;
+    }
+
+    &__title {
+      border-radius: 10px;
+      font-family: "Plus Jakarta Sans", sans-serif;
+      font-weight: bold;
+      font-size: 3rem;
       position: relative;
-      overflow: hidden;
-      transition: transform 0.3s ease, background-color 0.3s ease;
+      transition: all 0.4s ease;
 
       &:hover {
-        background-color: #4e47d6;
-        transform: translateY(-3px);
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        width: 60vh;
+        padding: 10px;
+        background: linear-gradient(90deg, #6c63ff, #4e47d6);
+        color: white;
+        transform: translateX(10px) scale(1.05);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
       }
 
       &::after {
         content: "";
         position: absolute;
-        top: 50%;
-        left: 50%;
+        left: 0;
+        bottom: -5px;
         width: 0;
-        height: 0;
-        background: rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        transform: translate(-50%, -50%);
-        transition: width 0.5s ease, height 0.5s ease;
+        height: 4px;
+        background: #6c63ff;
+        transition: width 0.3s ease;
       }
-      &:active::after {
-        width: 200%;
-        height: 200%;
-        transition: 0s;
+      &:hover::after {
+        width: 100%;
       }
     }
 
-    .house__info {
-      margin-top: 1.5rem;
-      padding: 1rem;
-      border-radius: 8px;
-      background-color: white;
-      animation: fadeInUp 0.8s ease;
-
-      &-text {
-        font-size: 1.2rem;
-        color: black;
-      }
-    }
-  }
-
-  &__item--stats {
-    display: flex;
-    gap: 2rem;
-
-    .house__stat {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 1rem;
-      border-radius: 12px;
-      background: #fff;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-
+    &__subtitle {
+      font-size: 1.5rem;
+      color: #333;
+      transition: color 0.3s ease, letter-spacing 0.3s ease;
       &:hover {
-        transform: translateY(-8px);
-        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        color: #6c63ff;
+        letter-spacing: 1px;
+      }
+    }
+
+    &__item--actions {
+      .house__buttons {
+        display: flex;
+        gap: 1rem;
       }
 
-      &-icon {
-        width: 60px;
-        height: auto;
-        margin-bottom: 0.5rem;
-        animation: float 4s ease-in-out infinite;
-      }
-
-      &-title {
-        font-size: 1.2rem;
+      .house__button {
+        padding: 0.7rem 1.2rem;
+        border: none;
+        border-radius: 8px;
+        background-color: #6c63ff;
+        color: white;
+        font-size: 1rem;
         font-weight: 600;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease, background-color 0.3s ease;
+
+        &:hover {
+          background-color: #4e47d6;
+          transform: translateY(-3px);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          background: rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          transition: width 0.5s ease, height 0.5s ease;
+        }
+        &:active::after {
+          width: 200%;
+          height: 200%;
+          transition: 0s;
+        }
       }
 
-      &-text {
-        font-size: 0.9rem;
-        color: #555;
+      .house__info {
+        margin-top: 1.5rem;
+        padding: 1rem;
+        border-radius: 8px;
+        background-color: white;
+        animation: fadeInUp 0.8s ease;
+
+        &-text {
+          font-size: 1.2rem;
+          color: black;
+        }
       }
     }
-  }
 
-  &__image-wrapper {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    overflow: hidden;
+    &__item--stats {
+      display: flex;
+      gap: 2rem;
 
-    .house__image {
-      border-radius: 20px;
-      max-width: 100%;
-      height: auto;
-      border-radius: 12px;
-      transition: all 0.8s ease-in-out;
+      .house__stat {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 12px;
+        background: #fff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-      &:hover {
-        background-color: #4e47d6;
-        transform: scale(1.1) rotate(-2deg);
-        filter: brightness(1.1);
+        &:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        &-icon {
+          width: 60px;
+          height: auto;
+          margin-bottom: 0.5rem;
+          animation: float 4s ease-in-out infinite;
+        }
+
+        &-title {
+          font-size: 1.2rem;
+          font-weight: 600;
+        }
+
+        &-text {
+          font-size: 0.9rem;
+          color: #555;
+        }
+      }
+    }
+
+    &__image-wrapper {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+
+      .house__image {
+        border-radius: 20px;
+        max-width: 100%;
+        height: auto;
+        border-radius: 12px;
+        transition: all 0.8s ease-in-out;
+
+        &:hover {
+          background-color: #4e47d6;
+          transform: scale(1.1) rotate(-2deg);
+          filter: brightness(1.1);
+        }
       }
     }
   }

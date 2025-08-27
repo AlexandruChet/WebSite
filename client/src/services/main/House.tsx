@@ -14,7 +14,8 @@ const House = () => {
   const toggleSell = () => setSell((prev) => !prev);
 
   return (
-    <main className="house container">
+    <div className="context">
+          <main className="house container">
       <div className="house__content">
         <ul className="house__list">
           <li className="house__item house__item--intro">
@@ -85,6 +86,7 @@ const House = () => {
         <img src={houseImage} alt="Your House" className="house__image" />
       </div>
     </main>
+    </div>
   );
 };
 
