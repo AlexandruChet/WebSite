@@ -6,6 +6,7 @@ import MyForm from "./Auth/Registration";
 import Calculate from "./services/Percent/PercentTranslator";
 import Fortune from "./services/Fortune/Fortune"
 import Slider from "./services/Slider/Slider"
+import NewHouseFind from "./services/Find/NewHouse";
 import Footer from "./services/Footer/Footer";
 
 const App = () => {
@@ -109,6 +110,9 @@ const App = () => {
       </div>
       <div ref={calculateRef}>
         <Calculate />
+      </div>
+      <div>
+        <NewHouseFind/>
       </div>
       <div ref={fortuneRef}>
         <Fortune />
