@@ -135,20 +135,6 @@ Built with **React + TypeScript** and styled using **SCSS**.
 
 ---
 
-## 📂 File Structure
-
-src/
-├── assets/ # Icons and images
-│ ├── People.svg
-│ ├── HouseSvg.svg
-│ └── House.svg
-├── services/main/
-│ └── House/
-│ ├── House.tsx # Main component
-│ └── House.scss # Styles
-
----
-
 ## ⚙️ Features
 
 - **Action Buttons**:
@@ -190,3 +176,55 @@ React + TypeScript
 SCSS with mixins and keyframes animations
 
 Google Fonts (Plus Jakarta Sans)
+
+- Fully typed with **TypeScript**
+- Reusable `Input` component with error handling
+- Validation for:
+  - Required fields
+  - Email format
+  - Password confirmation
+- Controlled form state using React `useState`
+- Styled with **SCSS**
+
+---
+
+```
+export const config = [
+  {
+    name: "name",
+    placeholder: "Name",
+    required: true,
+  },
+  {
+    name: "surname",
+    placeholder: "Surname",
+    required: true,
+  },
+  {
+    name: "email",
+    placeholder: "E-Mail",
+    pattern: "^\\S+@\\S+\\.\\S+$",
+    errorMessage: "Incorrect email",
+    required: true,
+  },
+  {
+    name: "password",
+    placeholder: "Password",
+    required: true,
+    type: "password",
+    minLength: 6,
+    errorMessage: "Passwords don't match",
+    validate: (state) => state.password === state.duplicate,
+  },
+  {
+    name: "duplicate",
+    placeholder: "Repeat password",
+    required: true,
+    type: "password",
+  },
+];
+```
+
+validate function can be used for custom validation logic.
+
+errorMessage is displayed if validation fails.
