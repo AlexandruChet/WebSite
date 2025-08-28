@@ -1,110 +1,154 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap");
-
 @mixin padding($top, $right, $bottom, $left) {
   padding: $top $right $bottom $left;
 }
 
-body {
-  font-family: "Ubuntu", sans-serif;
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.container {
-  @include padding(5rem, 5rem, 5rem, 5rem);
-  display: flex;
-  flex-wrap: wrap;
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.content__footer__context {
+  background-color: black;
 }
 
 .footer {
-  background-color: #021635;
-  .bottom__web {
-  color: white;
-  width: 100%;
-  background-color: #021635;
+  background-color: #040126;
+  animation: pulse 10s ease-in-out infinite;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+.bottom__web {
+  @include padding(3rem, 3rem, 3rem, 3rem);
   display: flex;
-  gap: 100vh;
+  flex-direction: column;
+  align-items: center;
+}
 
-  div {
-    font-size: 15px;
-  }
+.questions {
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
 
-  .questions {
-    button {
-      margin-top: 3rem;
-      font-size: 30px;
-      color: white;
-      transition: 0.3s ease;
+    li {
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease, background 0.3s ease,
+        box-shadow 0.3s ease;
 
       &:hover {
-        padding: 5px 10px;
-        margin-left: 15px;
-        color: #084298;
-        background-color: white;
-        border-radius: 20px;
-        box-shadow: rgba(255, 255, 255, 0.8) 0px 54px 55px,
-          rgb(255, 255, 255) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-          rgba(255, 255, 255, 0.17) 0px 12px 13px,
-          rgb(155, 137, 255) 0px -3px 5px;
+        transform: translateX(10px);
+        background: rgba(108, 99, 255, 0.1);
+        border-radius: 6px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      h3 {
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #333;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #6c63ff;
+          letter-spacing: 1px;
+        }
       }
     }
   }
-}
-}
 
-@media (max-width: 1024px) {
-  .container {
-    @include padding(3rem, 2rem, 3rem, 2rem);
-  }
+  button {
+    padding: 0.7rem 1.2rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #6c63ff;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 
-  .bottom__web {
-    gap: 50vh;
-
-    div {
-      font-size: 14px;
+    &:hover {
+      background-color: #4e47d6;
+      transform: translateY(-2px) scale(1.05);
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .questions button {
-      font-size: 25px;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    @include padding(2rem, 1.5rem, 2rem, 1.5rem);
-  }
-
-  .bottom__web {
-    flex-direction: column;
-    align-items: center;
-    gap: 2rem;
-
-    div {
-      text-align: center;
-      font-size: 14px;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      background: rgba(255, 255, 255, 0.3);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
     }
 
-    .questions button {
-      font-size: 22px;
-      margin-top: 2rem;
+    &:active::after {
+      width: 200%;
+      height: 200%;
+      transition: 0s;
     }
   }
 }
 
-@media (max-width: 480px) {
-  .container {
-    @include padding(1rem, 1rem, 1rem, 1rem);
+.info {
+  margin-top: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  background: white;
+  animation: fadeInUp 0.8s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   }
 
-  .bottom__web {
-    gap: 1.5rem;
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 
-    div {
-      font-size: 13px;
-    }
+    li {
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease, color 0.3s ease;
 
-    .questions button {
-      font-size: 18px;
-      margin-top: 1.5rem;
+      &:hover {
+        transform: translateX(8px);
+      }
+
+      h3 {
+        font-size: 1.2rem;
+        color: #333;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #6c63ff;
+        }
+      }
     }
   }
 }

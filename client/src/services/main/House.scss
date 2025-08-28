@@ -39,13 +39,6 @@
   }
 }
 
-/* 🔥 Эффект "блик" */
-@keyframes shine {
-  100% {
-    left: 125%;
-  }
-}
-
 .container {
   background-color: #e0def7;
   background-size: 200% 200%;
@@ -55,7 +48,6 @@
 
 .context {
   background-image: url("https://wallpapers.com/images/hd/best-hd-1080-x-1920-background-gyo3mt59illx3kxb.jpg");
-
   .house {
     width: 100%;
     display: flex;
@@ -85,31 +77,14 @@
       font-size: 3rem;
       position: relative;
       transition: all 0.4s ease;
-      overflow: hidden;
 
       &:hover {
         width: 60vh;
         padding: 10px;
         background: linear-gradient(90deg, #6c63ff, #4e47d6);
         color: white;
-        transform: translateX(10px) scale(1.05) rotate(-1deg);
+        transform: translateX(10px) scale(1.05);
         box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-      }
-
-      /* Блик при наведении */
-      &:hover::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: -75%;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(
-          120deg,
-          rgba(255, 255, 255, 0.3) 0%,
-          rgba(255, 255, 255, 0) 80%
-        );
-        animation: shine 1s forwards;
       }
 
       &::after {
@@ -130,11 +105,10 @@
     &__subtitle {
       font-size: 1.5rem;
       color: #333;
-      transition: color 0.3s ease, letter-spacing 0.3s ease, transform 0.3s ease;
+      transition: color 0.3s ease, letter-spacing 0.3s ease;
       &:hover {
         color: #6c63ff;
         letter-spacing: 1px;
-        transform: translateX(5px);
       }
     }
 
@@ -158,13 +132,27 @@
         transition: transform 0.3s ease, background-color 0.3s ease;
 
         &:hover {
-          background: linear-gradient(135deg, #6c63ff, #a084ff);
-          transform: translateY(-3px) scale(1.05) rotate(1deg);
-          box-shadow: 0 6px 20px rgba(108, 99, 255, 0.4);
+          background-color: #4e47d6;
+          transform: translateY(-3px);
+          box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
         }
 
-        &:active {
-          transform: scale(0.95);
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: 0;
+          height: 0;
+          background: rgba(255, 255, 255, 0.3);
+          border-radius: 50%;
+          transform: translate(-50%, -50%);
+          transition: width 0.5s ease, height 0.5s ease;
+        }
+        &:active::after {
+          width: 200%;
+          height: 200%;
+          transition: 0s;
         }
       }
 
@@ -194,23 +182,11 @@
         padding: 1rem;
         border-radius: 12px;
         background: #fff;
-        transition: all 0.4s ease;
-        position: relative;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
 
         &:hover {
-          transform: translateY(-8px) rotateY(8deg);
-          box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
-          background: linear-gradient(145deg, #ffffff, #f3f0ff);
-        }
-
-        /* Неоновая подсветка */
-        &:hover::after {
-          content: "";
-          position: absolute;
-          inset: 0;
-          border-radius: 12px;
-          box-shadow: 0 0 25px rgba(108, 99, 255, 0.6);
-          z-index: -1;
+          transform: translateY(-8px);
+          box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
         }
 
         &-icon {
@@ -241,16 +217,14 @@
       overflow: hidden;
 
       .house__image {
-        border-radius: 20px;
         max-width: 100%;
         height: auto;
         border-radius: 12px;
-        transition: all 0.8s ease-in-out;
+        transition: transform 0.8s ease, filter 0.5s ease;
 
         &:hover {
           transform: scale(1.1) rotate(-2deg);
-          filter: brightness(1.2) contrast(1.1) saturate(1.2);
-          box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+          filter: brightness(1.1);
         }
       }
     }

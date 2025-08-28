@@ -12,6 +12,8 @@
   }
 
   &__header {
+    padding: 0.7rem;
+    justify-content: center;
     flex: 1 1 40%;
     animation: fadeUp 1s ease forwards;
 
@@ -31,9 +33,9 @@
     }
 
     button {
-      padding: 0.8rem 1.6rem;
+      padding: 0.5rem 1.5rem;
       border: none;
-      border-radius: 8px;
+      border-radius: 1px;
       background: #0077ff;
       color: #fff;
       cursor: pointer;
@@ -172,7 +174,7 @@
     margin-bottom: 1rem;
 
     button {
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       background: transparent;
       border: none;
       cursor: pointer;
