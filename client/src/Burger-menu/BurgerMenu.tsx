@@ -6,6 +6,7 @@ interface BurgerMenuProps {
   onNavigateHouse?: () => void;
   onRegistration?: () => void;
   onNavigateFortune?: () => void;
+  onNavigateCom?: () => void;
 }
 
 const BurgerMenu = ({
@@ -13,6 +14,7 @@ const BurgerMenu = ({
   onNavigateHouse,
   onRegistration,
   onNavigateFortune,
+  onNavigateCom
 }: BurgerMenuProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const menuRef = useRef<HTMLDivElement | null>(null);
@@ -97,7 +99,12 @@ const BurgerMenu = ({
                   >Fortune</a>
                 </li>
                 <li>
-                  <a href="#">lorem 5</a>
+                  <a href="#"
+                  onClick={(e) => {
+                      e.preventDefault();
+                      onNavigateCom?.();
+                      setIsOpen(false);
+                    }}>Comments</a>
                 </li>
               </ul>
             </div>
