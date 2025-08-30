@@ -115,7 +115,7 @@ const App = () => {
         </div>
       </div>
       <div>
-        <Comment />
+        <NewHouseFind />
       </div>
       <div ref={registrationRef}>
         <MyForm />
@@ -124,7 +124,7 @@ const App = () => {
         <Calculate />
       </div>
       <div ref={commentsRef}>
-        <NewHouseFind />
+        <Comment/>
       </div>
       <div ref={fortuneRef}>
         <Fortune />
