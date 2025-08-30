@@ -9,6 +9,7 @@ import Slider from "./services/Slider/Slider";
 import NewHouseFind from "./services/Find/NewHouse";
 import Comment from "./services/Comments/Comment";
 import Footer from "./services/Footer/Footer";
+import CardsGenerations from "./Cards/CardGener";
 
 const App = () => {
   type SlidesArray = {
@@ -125,6 +126,9 @@ const App = () => {
       </div>
       <div ref={commentsRef}>
         <Comment/>
+      </div>
+      <div>
+        <CardsGenerations/>
       </div>
       <div ref={fortuneRef}>
         <Fortune />
