@@ -225,6 +225,82 @@ export const config = [
 ];
 ```
 
-validate function can be used for custom validation logic.
 
-errorMessage is displayed if validation fails.
+```markdown
+# React ToDo List Component
+
+This project contains a simple **ToDo List** built with **React** and **TypeScript**.  
+It allows you to add tasks, delete them, and move tasks up or down in the list.
+
+---
+
+## Features
+- Add new tasks
+- Delete tasks
+- Move tasks up or down
+- Initial default tasks: `Best`, `WebSite`, `Ever`
+
+---
+
+## Technologies Used
+- **React** (functional components + hooks)
+- **TypeScript**
+- **SCSS** for styling
+
+---
+
+## File Structure
+```
+
+src/
+├── Comment.tsx   # Main ToDo List component
+├── Comment.scss  # Styles for the component
+
+```
+
+---
+
+## Component Explanation
+
+### `useState`
+- `tasks`: holds an array of strings (the task list).
+- `newTask`: holds the current input value.
+
+### Functions
+- **handleInputChange(event)** → Updates the `newTask` state from the input field.
+- **addTask()** → Adds a new task if the input is not empty.
+- **deleteTask(index)** → Removes a task by its index.
+- **moveTaskUp(index)** → Moves a task one position up in the list.
+- **moveTaskDown(index)** → Moves a task one position down in the list.
+
+---
+
+## Usage
+1. Type a task into the input field.
+2. Click **Add** to insert the task into the list.
+3. Use:
+   - **Delete** button → to remove a task.
+   - **☝** button → to move a task up.
+   - **👇** button → to move a task down.
+
+---
+
+## Example UI
+
+```
+
+ToDo List
+\[ input field ] \[Add]
+
+1. Best     \[Delete] \[☝] \[👇]
+2. WebSite  \[Delete] \[☝] \[👇]
+3. Ever     \[Delete] \[☝] \[👇]
+
+````
+
+---
+## Notes
+
+* The component is written with **TypeScript**, so type safety is included.
+* Styles are located in `Comment.scss`, which you can customize.
+* This project is meant as a beginner-friendly example of working with **React state** and **list operations**.
