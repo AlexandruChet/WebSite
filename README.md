@@ -304,3 +304,80 @@ ToDo List
 * The component is written with **TypeScript**, so type safety is included.
 * Styles are located in `Comment.scss`, which you can customize.
 * This project is meant as a beginner-friendly example of working with **React state** and **list operations**.
+
+```markdown
+# Node.js Static File Server
+
+This server on **Node.js** allows you to serve static files (React) from the `client/dist` folder.
+
+## 🚀 Start
+
+Install [Node.js](https://nodejs.org/), then in the terminal execute:
+
+```bash
+node server/index.js
+````
+
+After that, the server will start at:
+
+```
+http://127.0.0.1:8000
+```
+
+## 📝 Server code
+
+```js
+const http = require("node:http");
+const fs = require("node:fs");
+const path = require("node:path");
+
+const PORT = 8000;
+const STATIC_PATH = path.join(__dirname, "../client/dist");
+
+const MIME_TYPES = { 
+".html": "text/html; charset=UTF-8", 
+".js": "application/javascript; charset=UTF-8", 
+".css": "text/css", 
+".png": "image/png", 
+".jpg": "image/jpeg", 
+".svg": "image/svg+xml", 
+".ico": "image/x-icon",
+};
+
+http.createServer((req, res) => { 
+let filePath = path.join(STATIC_PATH, req.url === "/" ? "index.html" : req.url); 
+let ext = path.extname(filePath); 
+
+fs.readFile(filePath, (err, data) => { 
+if (err) { 
+fs.readFile(path.join(STATIC_PATH, "index.html"), (err2, data2) => { 
+if (err2) { 
+res.writeHead(500); 
+res.end("Server Error"); 
+return; 
+} 
+res.writeHead(200, { "Content-Type": MIME_TYPES[".html"] }); 
+res.end(data2); 
+}); 
+return; 
+} 
+
+res.writeHead(200, { "Content-Type": MIME_TYPES[ext] || "application/octet-stream" }); 
+res.end(data);
+});
+}).listen(PORT, () => {
+console.log(`Server running at http://127.0.0.1:${PORT}`);
+});
+```
+
+## ⚙️ How it works
+
+1. The server listens on **port 8000**.
+2. If the user goes to `/`, `index.html` is returned.
+3. All other requests (`/style.css`, `/script.js`, `/images/logo.png`) are searched in the `client/dist` folder.
+4. If the file is not found, the server returns `index.html` (this is convenient for **SPA**, for example, React/Vue).
+5. MIME types are selected automatically for HTML, JS, CSS, images.
+
+---
+
+✅ Suitable for small sites, SPA testing or local development.
